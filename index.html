@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catherine Anderson — English Conversation & Language Coaching</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf7f2;
+            --surface: #f2ece0;
+            --border: #e0d6c4;
+            --text: #2c2416;
+            --muted: #8a7a60;
+            --accent: #b85c38;
+            --accent-light: rgba(184, 92, 56, 0.08);
+            --warm: #d4956a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* NAV */
+        nav {
+            padding: 28px 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-name {
+            font-family: 'Lora', serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-link {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover { color: var(--accent); }
+
+        /* HERO */
+        .hero {
+            padding: 64px 0 56px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-tag {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Lora', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 400;
+            line-height: 1.25;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--muted);
+            max-width: 480px;
+            line-height: 1.9;
+        }
+
+        /* PULL QUOTE */
+        .pull-quote {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pull-quote blockquote {
+            font-family: 'Lora', serif;
+            font-size: clamp(18px, 3vw, 24px);
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text);
+            padding-left: 24px;
+            border-left: 3px solid var(--warm);
+        }
+
+        /* SECTION */
+        section {
+            padding: 52px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+
+        /* WHO THIS IS FOR */
+        .for-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+        }
+
+        .for-item {
+            background: var(--surface);
+            padding: 24px 28px;
+            transition: background 0.2s;
+        }
+
+        .for-item:hover { background: var(--accent-light); }
+
+        .for-item h3 {
+            font-family: 'Lora', serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .for-item p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* WHAT WE WORK ON */
+        .topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .topic {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+
+        .topic:hover {
+            background: var(--accent-light);
+            border-color: var(--warm);
+            color: var(--text);
+        }
+
+        /* ABOUT */
+        .about-text {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.95;
+            max-width: 520px;
+        }
+
+        .about-text strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* LOGISTICS */
+        .logistics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+        }
+
+        .logistics-item {
+            background: var(--surface);
+            padding: 20px 24px;
+        }
+
+        .logistics-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .logistics-value {
+            font-family: 'Lora', serif;
+            font-size: 15px;
+            color: var(--text);
+        }
+
+        /* CONTACT */
+        .contact-intro {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 0;
+            color: var(--text);
+            font-family: 'Jost', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            padding: 14px 16px;
+            outline: none;
+            transition: border-color 0.2s;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--warm);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--muted);
+            opacity: 0.6;
+        }
+
+        textarea { resize: none; }
+
+        .submit-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--surface);
+            padding: 16px 16px;
+            border: 1px solid var(--border);
+            margin-top: 2px;
+        }
+
+        .submit-note {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        button[type="submit"] {
+            background: var(--accent);
+            border: none;
+            color: white;
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: auto;
+            margin: 0;
+        }
+
+        button[type="submit"]:hover {
+            background: var(--warm);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 1px;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover { color: var(--accent); }
+
+        @media (max-width: 520px) {
+            .for-grid, .logistics-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <nav>
+        <a href="#" class="nav-name">Catherine Anderson</a>
+        <a href="#contact" class="nav-link">Book a lesson</a>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-tag">English Conversation &amp; Language Coaching</div>
+        <h1>Learn to speak English<br>with <em>confidence.</em></h1>
+        <p>Conversational English lessons for beginners and intermediates who want to sound natural, not just correct. Patient, warm, and genuinely interested in you.</p>
+    </div>
+
+    <div class="pull-quote">
+        <blockquote>
+            "The goal isn't perfect grammar. It's finding your voice in a new language."
+        </blockquote>
+    </div>
+
+    <section>
+        <div class="section-label">Who this is for</div>
+        <div class="for-grid">
+            <div class="for-item">
+                <h3>Beginners</h3>
+                <p>You know some English but feel nervous speaking. We go at your pace, no pressure, lots of encouragement.</p>
+            </div>
+            <div class="for-item">
+                <h3>Intermediates</h3>
+                <p>You can communicate but want to sound more natural and confident in real conversations.</p>
+            </div>
+            <div class="for-item">
+                <h3>Professionals</h3>
+                <p>You need English for work — meetings, emails, presentations. We focus on what matters for your field.</p>
+            </div>
+            <div class="for-item">
+                <h3>Everyday speakers</h3>
+                <p>Travel, socializing, consuming media in English. You want to enjoy the language, not just survive it.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-label">What we work on</div>
+        <div class="topics">
+            <span class="topic">Natural conversation</span>
+            <span class="topic">Pronunciation</span>
+            <span class="topic">Everyday vocabulary</span>
+            <span class="topic">Idioms &amp; expressions</span>
+            <span class="topic">Listening comprehension</span>
+            <span class="topic">Professional English</span>
+            <span class="topic">Grammar in context</span>
+            <span class="topic">American culture &amp; slang</span>
+            <span class="topic">Travel English</span>
+            <span class="topic">Writing &amp; email</span>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-label">About me</div>
+        <p class="about-text">
+            I'm a native English speaker from California with a <strong>CELTA certification</strong> and years of experience teaching students from all over the world. I've lived and worked in Europe and understand what it's like to navigate life in a language that isn't your first.<br><br>
+            I work best with students who want <strong>real conversation</strong>, not just drills. My lessons are relaxed, curious, and built around what you actually need — whether that's small talk, job interviews, or just feeling less anxious when you open your mouth.<br><br>
+            Lessons are available online via video call, flexible scheduling across time zones.
+        </p>
+    </section>
+
+    <section>
+        <div class="section-label">Practical details</div>
+        <div class="logistics-grid">
+            <div class="logistics-item">
+                <div class="logistics-label">Format</div>
+                <div class="logistics-value">One-on-one via video call</div>
+            </div>
+            <div class="logistics-item">
+                <div class="logistics-label">Session length</div>
+                <div class="logistics-value">50 minutes</div>
+            </div>
+            <div class="logistics-item">
+                <div class="logistics-label">Level</div>
+                <div class="logistics-value">Beginner to intermediate</div>
+            </div>
+            <div class="logistics-item">
+                <div class="logistics-label">Platform</div>
+                <div class="logistics-value">Preply or direct booking</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-label">Get in touch</div>
+        <p class="contact-intro">Interested in lessons? Send me a message and tell me a little about your English goals. I'll get back to you within 48 hours.</p>
+        <form action="https://formspree.io/f/xreaokov" method="POST">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <input type="text" name="level" placeholder="Your English level (beginner / intermediate / not sure)">
+            <textarea name="message" rows="4" placeholder="Tell me about your goals — what do you want to work on?" required></textarea>
+            <div class="submit-row">
+                <span class="submit-note">Response within 48 hours</span>
+                <button type="submit">Send →</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        <span>&copy; 2026 Catherine Anderson</span>
+        <a href="https://nullpointdesign.github.io">Null Point Design</a>
+    </footer>
+
+</div>
+</body>
+</html>
